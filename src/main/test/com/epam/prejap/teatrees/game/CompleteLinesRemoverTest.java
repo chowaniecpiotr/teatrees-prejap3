@@ -1,10 +1,11 @@
 package com.epam.prejap.teatrees.game;
 
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
+
+import static org.testng.Assert.assertTrue;
 
 public class CompleteLinesRemoverTest {
 
@@ -20,7 +21,7 @@ public class CompleteLinesRemoverTest {
         // When
         byte[][] actual = remover.removeCompleteLines(initGrid);
         // Then
-        Assert.assertTrue(Arrays.deepEquals(actual, expected));
+        assertTrue(Arrays.deepEquals(actual, expected));
     }
 
     @Test(dataProvider = "gridsWithCompleteLines")
@@ -35,7 +36,7 @@ public class CompleteLinesRemoverTest {
         // When
         byte[][] actual = remover.removeCompleteLines(initGrid);
         // Then
-        Assert.assertTrue(Arrays.deepEquals(actual, expected));
+        assertTrue(Arrays.deepEquals(actual, expected));
     }
 
     @DataProvider

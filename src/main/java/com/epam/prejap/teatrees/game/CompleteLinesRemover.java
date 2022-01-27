@@ -9,7 +9,7 @@ interface CompleteLinesRemover {
 
     /**
      * Grid is being checked from bottom to top one by one. While complete line is found then it is being removed,
-     * lines above are moved one position down, empty line is being added on the top.
+     * lines above are being moved one position down, empty line is being added on the top.
      *
      * @param grid from playfield.
      * @return modified grid.
@@ -29,6 +29,9 @@ interface CompleteLinesRemover {
 
     /**
      * If given {@code byte[] line} sum of values is equal to its length, then return true.
+     *
+     * @param line single byte array from grid.
+     * @return sum of values of given line.
      */
     private boolean isLineComplete(byte[] line) {
         return line.length == sumLineValues(line);

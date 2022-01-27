@@ -24,7 +24,8 @@ public class Playfield implements CompleteLinesRemover {
     }
 
     /**
-     * Before next block appear, complete lines to be removed.
+     * Before next block appears on the playfield, all complete lines should be removed and replaced with empty
+     * lines on the top.
      */
     public void nextBlock() {
         removeCompleteLines(grid);
