@@ -3,7 +3,7 @@ package com.epam.prejap.teatrees.game;
 import com.epam.prejap.teatrees.block.Block;
 import com.epam.prejap.teatrees.block.BlockFeed;
 
-public class Playfield {
+public class Playfield implements CompleteLinesRemover {
 
     private final byte[][] grid;
     private final int rows;
@@ -23,7 +23,11 @@ public class Playfield {
         grid = new byte[this.rows][this.cols];
     }
 
+    /**
+     * Before next block appear, complete lines to be removed.
+     */
     public void nextBlock() {
+        removeCompleteLines(grid);
         block = feed.nextBlock();
         row = 0;
         col = (cols - block.cols()) / 2;
@@ -33,15 +37,14 @@ public class Playfield {
     public boolean move(Move move) {
         hide();
         boolean moved;
-            switch (move) {
-                case LEFT -> moveLeft();
-                case RIGHT -> moveRight();
-            }
-            moved = moveDown();
+        switch (move) {
+            case LEFT -> moveLeft();
+            case RIGHT -> moveRight();
+        }
+        moved = moveDown();
         show();
         return moved;
     }
-
 
     private void moveRight() {
         move(0, 1);
@@ -107,6 +110,6 @@ public class Playfield {
 
     private interface BrickAction {
         void act(int i, int j, byte dot);
-    }
 
+    }
 }
