@@ -3,14 +3,14 @@ package com.epam.prejap.teatrees.game;
 import com.epam.prejap.teatrees.block.Block;
 import com.epam.prejap.teatrees.block.BlockFeed;
 
-public class Playfield implements CompleteLinesRemover {
+public class Playfield {
 
-    private final byte[][] grid;
     private final int rows;
     private final int cols;
     private final Printer printer;
     private final BlockFeed feed;
 
+    private byte[][] grid;
     private Block block;
     private int row;
     private int col;
@@ -28,7 +28,6 @@ public class Playfield implements CompleteLinesRemover {
      * lines on the top.
      */
     public void nextBlock() {
-        removeCompleteLines(grid);
         block = feed.nextBlock();
         row = 0;
         col = (cols - block.cols()) / 2;

@@ -1,11 +1,13 @@
 package com.epam.prejap.teatrees.game;
 
+import java.util.Arrays;
+
 /**
  * Verifies and removes complete lines in playfield grid.
  *
  * @author Piotr Chowaniec
  */
-interface CompleteLinesRemover {
+public class LinesRemover {
 
     /**
      * Grid is being checked from bottom to top one by one. While complete line is found then it is being removed,
@@ -14,17 +16,30 @@ interface CompleteLinesRemover {
      * @param grid from playfield.
      * @return modified grid.
      */
-    default byte[][] removeCompleteLines(byte[][] grid) {
-        for (int i = grid.length - 1; i > 0; i--) {
-            if (isLineComplete(grid[i])) {
-                moveLinesAboveOnePositionDown(grid, i++);
-                addEmptyLineOnTop(grid);
+    byte[][] removeCompleteLines(byte[][] grid) {
+        byte[][] newGrid = deepCopyGrid(grid);
+        for (int i = newGrid.length - 1; i > 0; i--) {
+            if (isLineComplete(newGrid[i])) {
+                moveLinesAboveOnePositionDown(newGrid, i++);
+                addEmptyLineOnTop(newGrid);
             }
         }
-        if (isLineComplete(grid[0])) {
-            addEmptyLineOnTop(grid);
+        if (isLineComplete(newGrid[0])) {
+            addEmptyLineOnTop(newGrid);
         }
-        return grid;
+        return newGrid;
+    }
+
+    /**
+     * Prepares deep copy of grid array.
+     *
+     * @param grid array to be copied.
+     * @return deep copy of given array.
+     */
+    private byte[][] deepCopyGrid(byte[][] grid) {
+        return Arrays.stream(grid)
+                .map(line -> Arrays.copyOf(line, line.length))
+                .toArray(byte[][]::new);
     }
 
     /**

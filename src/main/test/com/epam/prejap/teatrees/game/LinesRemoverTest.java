@@ -7,17 +7,12 @@ import java.util.Arrays;
 
 import static org.testng.Assert.assertTrue;
 
-public class CompleteLinesRemoverTest {
+public class LinesRemoverTest {
 
     @Test(dataProvider = "gridsWithoutCompleteLines")
     public void shouldNotChangeGrid(byte[][] initGrid, byte[][] expected) {
         // Given
-        CompleteLinesRemover remover = new CompleteLinesRemover() {
-            @Override
-            public byte[][] removeCompleteLines(byte[][] grid) {
-                return CompleteLinesRemover.super.removeCompleteLines(grid);
-            }
-        };
+        LinesRemover remover = new LinesRemover();
         // When
         byte[][] actual = remover.removeCompleteLines(initGrid);
         // Then
@@ -27,12 +22,7 @@ public class CompleteLinesRemoverTest {
     @Test(dataProvider = "gridsWithCompleteLines")
     public void shouldRemoveCompleteLines(byte[][] initGrid, byte[][] expected) {
         // Given
-        CompleteLinesRemover remover = new CompleteLinesRemover() {
-            @Override
-            public byte[][] removeCompleteLines(byte[][] grid) {
-                return CompleteLinesRemover.super.removeCompleteLines(grid);
-            }
-        };
+        LinesRemover remover = new LinesRemover();
         // When
         byte[][] actual = remover.removeCompleteLines(initGrid);
         // Then

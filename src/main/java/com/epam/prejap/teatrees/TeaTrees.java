@@ -3,10 +3,7 @@ package com.epam.prejap.teatrees;
 import com.epam.prejap.teatrees.pause.Pause;
 import com.epam.prejap.teatrees.pause.PauseMonitor;
 import com.epam.prejap.teatrees.block.BlockFeed;
-import com.epam.prejap.teatrees.game.Move;
-import com.epam.prejap.teatrees.game.Playfield;
-import com.epam.prejap.teatrees.game.Printer;
-import com.epam.prejap.teatrees.game.Waiter;
+import com.epam.prejap.teatrees.game.*;
 import com.epam.prejap.teatrees.player.Player;
 import com.epam.prejap.teatrees.player.RandomPlayer;
 import java.io.InputStreamReader;
@@ -64,5 +61,4 @@ class TeaTrees {
 
         System.out.println("Score: " + score.points());
     }
-
 }
