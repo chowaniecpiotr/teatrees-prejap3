@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
+@Test(groups = "grid")
 public class GridTest {
 
     @Test(dataProvider = "gridsWithoutCompleteLines")
