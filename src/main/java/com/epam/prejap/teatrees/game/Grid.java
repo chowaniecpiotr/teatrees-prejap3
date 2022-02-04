@@ -3,7 +3,7 @@ package com.epam.prejap.teatrees.game;
 import java.util.Arrays;
 
 /**
- * Keeps state of playing grid and manipulates.
+ * Keeps state of playing grid and manipulates it.
  * Verifies and removes complete lines in playfield grid.
  *
  * @author Piotr Chowaniec
